@@ -14,7 +14,7 @@ interface Project {
   longDescription: string;
   tech: string[];
   live: string;
-  github: string;
+  github?: string;
   highlight?: string;
   category: string;
 }
@@ -42,6 +42,17 @@ const projects: Project[] = [
   },
   {
     id: 2,
+    title: "Commercial Landing Website",
+    image: "/images/hero-bg.jpg",
+    description: "Responsive commercial landing page built for modern product showcase and conversion-focused presentation",
+    longDescription: "A polished commercial landing website designed to present a product, service, or personal brand with strong visual hierarchy, responsive layouts, and clear call-to-action sections. Built to deliver a clean first impression across desktop and mobile screens.",
+    tech: ["React", "Vite", "Responsive Design", "Tailwind", "UI/UX"],
+    live: "https://vsiva763-git.github.io/cheery-alfajores-407f3e/",
+    highlight: "Live commercial landing page",
+    category: "Web & Commercial"
+  },
+  {
+    id: 3,
     title: "PM2.5 Air Quality Analysis",
     image: "/images/pm25-project.jpg",
     description: "ML-powered real-time PM2.5 prediction & urban pollution intelligence platform",
@@ -53,7 +64,7 @@ const projects: Project[] = [
     category: "AI/ML & IoT"
   },
   {
-    id: 3,
+    id: 4,
     title: "Industrial IoT Monitoring System",
     image: "/images/industrial-project.jpg",
     description: "Enterprise-grade real-time industrial monitoring with AI analytics & energy optimization",
@@ -65,7 +76,7 @@ const projects: Project[] = [
     category: "IoT & Embedded"
   },
   {
-    id: 4,
+    id: 5,
     title: "Sewage Gas Monitoring System",
     image: "/images/sewage-project.jpg",
     description: "Smart underground IoT gas detection & real-time hazardous gas alert system",
@@ -77,7 +88,7 @@ const projects: Project[] = [
     category: "IoT & Embedded"
   },
   {
-    id: 5,
+    id: 6,
     title: "UbicoD.Transylvania",
     image: "/images/transylvania-project.jpg",
     description: "Immersive cyber-fantasy digital experience platform with interactive storytelling",
@@ -89,7 +100,7 @@ const projects: Project[] = [
     category: "Web & Creative"
   },
   {
-    id: 6,
+    id: 7,
     title: "Nature Monitor",
     image: "/images/nature-project.jpg",
     description: "AI-driven biodiversity & ecosystem intelligence platform for conservation",
@@ -101,7 +112,7 @@ const projects: Project[] = [
     category: "AI/ML & IoT"
   },
   {
-    id: 7,
+    id: 8,
     title: "IS-TEWS Tsunami Early Warning",
     image: "/images/tsunami-project.jpg",
     description: "Research-grade ML Tsunami Detection System (AUC: 0.9957) with IoT alerts",
@@ -850,30 +861,111 @@ IoT System Development | Embedded AI & Edge Computing | Data-Driven Engineering 
             )}
           </div>
 
-          <div className="text-center mt-8 text-xs sm:text-sm text-white/60 flex flex-wrap justify-center gap-3 sm:gap-6 tracking-wider">
-            <a href="https://github.com/sharunandha" target="_blank" className="flex items-center gap-2 hover:text-[#00f0ff] transition font-semibold">
-              <Github size={18} /> GitHub
-            </a> 
-            <span className="hidden md:inline">•</span> 
-            <span>OPEN TO COLLABORATIONS</span> 
-            <span className="hidden md:inline">•</span> 
-            <button onClick={downloadCV} className="flex items-center gap-2 hover:text-[#00f0ff] transition font-semibold">
-              <Download size={18} /> CV
-            </button>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+            className="relative mt-10 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(0,240,255,0.12),_transparent_35%),linear-gradient(135deg,rgba(10,10,31,0.96),rgba(5,5,15,0.98))] px-4 sm:px-6 py-6 sm:py-8"
+          >
+            <div className="pointer-events-none absolute inset-0 opacity-60">
+              <motion.div
+                animate={{ x: [0, 18, 0], y: [0, -10, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -left-10 top-1/2 h-28 w-28 rounded-full bg-[#00f0ff]/15 blur-3xl"
+              />
+              <motion.div
+                animate={{ x: [0, -16, 0], y: [0, 12, 0] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute right-0 -top-8 h-32 w-32 rounded-full bg-[#a855f7]/15 blur-3xl"
+              />
+            </div>
+
+            <div className="relative flex flex-col items-center gap-4 text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.92 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+              >
+                <a
+                  href="https://github.com/sharunandha"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 sm:px-5 py-2 text-[11px] sm:text-sm font-semibold tracking-[2px] text-white/80 transition-all duration-300 hover:border-[#00f0ff]/40 hover:bg-[#00f0ff]/10 hover:text-[#00f0ff] hover:shadow-[0_0_30px_rgba(0,240,255,0.18)]"
+                >
+                  <motion.span
+                    animate={{ rotate: [0, 6, -6, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="inline-flex"
+                  >
+                    <Github size={16} />
+                  </motion.span>
+                  GITHUB
+                </a>
+
+                <motion.div
+                  animate={{ opacity: [0.35, 1, 0.35], scale: [0.96, 1, 0.96] }}
+                  transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+                  className="hidden sm:block text-[#00f0ff]"
+                >
+                  •
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -2, 0] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#22ff88]/20 bg-[#22ff88]/10 px-4 sm:px-6 py-2 text-[10px] sm:text-sm font-semibold tracking-[2px] text-[#dfffe9] shadow-[0_0_28px_rgba(34,255,136,0.12)]"
+                >
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22ff88] opacity-70" />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#22ff88]" />
+                  </span>
+                  OPEN TO COLLABORATIONS
+                </motion.div>
+
+                <motion.div
+                  animate={{ opacity: [0.35, 1, 0.35], scale: [0.96, 1, 0.96] }}
+                  transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                  className="hidden sm:block text-[#a855f7]"
+                >
+                  •
+                </motion.div>
+
+                <button
+                  onClick={downloadCV}
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 sm:px-5 py-2 text-[11px] sm:text-sm font-semibold tracking-[2px] text-white/80 transition-all duration-300 hover:border-[#a855f7]/40 hover:bg-[#a855f7]/10 hover:text-[#d9c2ff] hover:shadow-[0_0_30px_rgba(168,85,247,0.18)]"
+                >
+                  <motion.span
+                    animate={{ y: [0, -2, 0], rotate: [0, -6, 0, 6, 0] }}
+                    transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                    className="inline-flex"
+                  >
+                    <Download size={16} />
+                  </motion.span>
+                  CV
+                </button>
+              </motion.div>
+
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
+                className="h-px max-w-3xl bg-gradient-to-r from-transparent via-white/30 to-transparent"
+              />
+
+              <p className="max-w-2xl text-[11px] sm:text-sm text-white/55 tracking-[2px] sm:tracking-[3px] uppercase">
+                Let’s build systems, interfaces, and products that feel alive.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
 
       {/* FOOTER */}
       <footer className="py-8 sm:py-12 border-t border-white/10 text-center text-[10px] sm:text-xs tracking-[1.5px] sm:tracking-[2.5px] text-white/50">
-        <div className="mb-4 flex justify-center gap-6 sm:gap-8">
-          <a href="https://github.com/sharunandha" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#00f0ff] transition">
-            <Github size={20} />
-          </a>
-          <button onClick={downloadCV} className="flex items-center gap-2 hover:text-[#00f0ff] transition">
-            <Download size={20} />
-          </button>
-        </div>
         © {new Date().getFullYear()} SHARUNANDHAGANESH S — BUILT WITH PRECISION &amp; PURPOSE.
       </footer>
 
@@ -908,9 +1000,11 @@ IoT System Development | Embedded AI & Edge Computing | Data-Driven Engineering 
                           LIVE DEMO <ExternalLink size={17} />
                         </a>
                       )}
-                      <a href={selectedProject.github} target="_blank" className="flex-1 md:flex-none inline-flex items-center justify-center gap-2.5 border border-white/40 px-7 py-3.5 text-sm tracking-wider rounded-2xl hover:bg-white/5 active:scale-[0.985]">
-                        <Github size={18} /> SOURCE
-                      </a>
+                      {selectedProject.github && (
+                        <a href={selectedProject.github} target="_blank" className="flex-1 md:flex-none inline-flex items-center justify-center gap-2.5 border border-white/40 px-7 py-3.5 text-sm tracking-wider rounded-2xl hover:bg-white/5 active:scale-[0.985]">
+                          <Github size={18} /> SOURCE
+                        </a>
+                      )}
                     </div>
                   </div>
 
